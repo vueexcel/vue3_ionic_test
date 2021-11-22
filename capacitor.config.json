@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "vue3test",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
