@@ -1,38 +1,70 @@
 <template>
-  <ion-page>
     <ion-content>
       <swiper
-        :modules="modules"
-        :keyboard="true"
-        :pagination="true"
+        :modules="[Thumbs]"
+        :controller="{ control: controlledSwiper }"
+        :slides-per-view="1"
+        :space-between="50"
+        navigation
+        :pagination="{ clickable: true }"
+        style="height: 100%"
       >
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>
+          <div class="firstSlide">
+            <img src="@/assets/Illustration.svg">
+            <p>Connect easily with your family and friends over countries</p>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="firstSlide">
+            <img src="@/assets/privacy.jpg">
+            <p>Enjoy while having full privacy with our end-to-end encryption</p>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="firstSlide">
+            <img src="@/assets/storage.jpg">
+            <p>Store unlimited audio, video and text messages for free</p>
+          </div>
+        </swiper-slide>
       </swiper>
     </ion-content>
-  </ion-page>
 </template>
 <script>
-  import { defineComponent } from 'vue';
-  import { Keyboard, Pagination } from 'swiper';
+  import { defineComponent, ref } from 'vue';
+  import { Controller, Thumbs  } from 'swiper';
   import { Swiper, SwiperSlide } from 'swiper/vue';
-  import { IonContent, IonPage } from '@ionic/vue';
+  import { IonContent } from '@ionic/vue';
+  import 'swiper/swiper-bundle.min.css';
+  import SwiperCore, { Navigation, Pagination } from 'swiper';
 
-  import 'swiper/css';
-  import 'swiper/css/autoplay';
-  import 'swiper/css/keyboard';
-  import 'swiper/css/pagination';
-  import 'swiper/css/scrollbar';
-  import 'swiper/css/zoom';
-  import '@ionic/vue/css/ionic-swiper.css';
+  SwiperCore.use([Navigation, Pagination]);
 
   export default defineComponent({
-    components: { Swiper, SwiperSlide, IonContent, IonPage },
+    components: { Swiper, SwiperSlide, IonContent },
     setup() {
+      const controlledSwiper = ref(null)
+
       return {
-        modules: [ Keyboard, Pagination ]
+        Controller,
+        controlledSwiper,
+        modules: [ Navigation, Pagination, Controller, Thumbs  ]
       }
     }
   });
 </script>
+
+<style scoped>
+ .firstSlide{
+   width:75%;
+   text-align: center;
+   margin:20% auto;
+   font-family: Mulish;
+ }
+ .firstSlide p{
+   font-weight : 700;
+   font-style: normal;
+   font-size: 24px;
+   line-height: 30px;
+ }
+</style>

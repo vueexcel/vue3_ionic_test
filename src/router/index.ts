@@ -28,6 +28,10 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Tab3.vue')
       }
     ]
+  },
+  {
+    path: '/chatpage/:friendId',
+    component: () => import('@/views/ChatPage.vue')
   }
 ]
 

@@ -21,16 +21,16 @@
 
 <script lang="ts">
 import { IonTabBar, IonTabButton, IonTabs, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-import { chatbubbleOutline, personOutline, homeOutline} from 'ionicons/icons';
+import { chatbubbleOutline, personOutline, homeOutline } from 'ionicons/icons';
 
 export default {
   name: 'Tabs',
   components: { IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage, IonRouterOutlet },
   setup() {
     return {
-      homeOutline, 
       chatbubbleOutline, 
-      personOutline,
+      personOutline, 
+      homeOutline,
     }
   }
 }
